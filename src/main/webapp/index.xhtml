@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h = "http://java.sun.com/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        
+        <h1>Copie e cole o texto aqui</h1>
+        
+        <h:form id="formulario">
+           
+            <h:inputTextarea id="texto" value="#{manipularString.texto}" rows="20" cols="160" />
+            <br />
+            <h:commandButton value="Registrar email" action="texto" type="submit" />
+                             
+        </h:form>
+      
+        <br />
+        <hr />
+        
+        <h1>Texto</h1>
+        
+        <p>
+            <h:outputText value="#{manipularString.texto}" />
+        </p>
+        
+    </body>
+</html>
