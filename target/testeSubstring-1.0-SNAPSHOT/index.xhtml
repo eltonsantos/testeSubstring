@@ -15,8 +15,8 @@
            
             <h:inputTextarea id="texto" value="#{manipularString.texto}" rows="20" cols="160" />
             <br />
-            <h:commandButton value="Registrar email" action="texto" type="submit" />
-                             
+            <h:commandButton value="Registrar email" action="#{manipularString.tratarTexto()}" type="submit" />
+
         </h:form>
       
         <br />
