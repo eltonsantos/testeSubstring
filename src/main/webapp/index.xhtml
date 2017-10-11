@@ -5,7 +5,7 @@
     <head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
         
@@ -15,7 +15,7 @@
            
             <h:inputTextarea id="texto" value="#{manipularString.texto}" rows="20" cols="160" />
             <br />
-            <h:commandButton value="Registrar email" action="#{manipularString.tratarTexto()}" type="submit" />
+            <h:commandButton value="Registrar e-mail" action="#{manipularString.tratarTexto()}" type="submit" />
 
         </h:form>
       
@@ -25,7 +25,7 @@
         <h1>Texto</h1>
         
         <p>
-            <h:outputText value="#{manipularString.texto}" />
+            <h:outputText value="#{manipularString.tratado}" />
         </p>
         
     </body>
