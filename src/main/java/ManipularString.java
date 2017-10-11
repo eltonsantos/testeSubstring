@@ -1,39 +1,52 @@
-import java.util.ArrayList;
+import java.util.StringTokenizer;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean(name = "manipularString")
 public class ManipularString {
     
     private String texto;
-    private String tratado;
+    //private String tratado;
     
-    public String tratarTexto(){
-        
-        ArrayList<String> palavrasChaves = new ArrayList<>();
-        palavrasChaves.add("PROTOCOLO");
-        palavrasChaves.add("ÓRGÃO");
-        palavrasChaves.add("DATA DE REGISTRO");
-        palavrasChaves.add("NOME MANIFESTANTE");
-        palavrasChaves.add("E-MAIL MANIFESTANTE");
-        palavrasChaves.add("ENDEREÇO MANIFESTANTE");
-        palavrasChaves.add("TELEFONE MANIFESTANTE");
-        palavrasChaves.add("ASSUNTO");
-        palavrasChaves.add("TEXTO DA MANIFESTAÇÃO");
-        palavrasChaves.add("CONTEXTUALIZAÇÃO PARA ÁREA COMPETENTE");
-        
-        System.out.println("------------------------------");
-        System.out.println("Lista: " +palavrasChaves);
-        
-        tratado = texto.replaceAll(" ", "");
-        System.out.println(tratado);
-        return tratado;    
+    private String protocolo;
+    private String orgao;
+    private String data_registro;
+    private String nome_manifestante;
+    private String email_manifestante;
+    private String endereco_manifestante;
+    private String telefone_manifestante;
+    private String assunto;
+    private String texto_manifestacao;
+    private String contextualizacao;
+    
+    public void tratarTexto(){
+   
+        StringTokenizer st = new StringTokenizer(texto);
+           
+        protocolo = st.nextToken("$");
+        orgao = st.nextToken("$");
+        data_registro = st.nextToken("$");
+        nome_manifestante = st.nextToken("$");
+        email_manifestante = st.nextToken("$");
+        endereco_manifestante = st.nextToken("$");
+        telefone_manifestante = st.nextToken("$");
+        assunto = st.nextToken("$");
+        texto_manifestacao = st.nextToken("$");
+        contextualizacao = st.nextToken("$");    
+           
+        System.out.println("PROTOCOLO: " + protocolo);
+        System.out.println("ÓRGÃO: " + orgao);
+        System.out.println("DATA DE REGISTRO: " + data_registro);
+        System.out.println("NOME MANIFESTANTE: " + nome_manifestante);
+        System.out.println("E-MAIL MANIFESTANTE: " + email_manifestante);
+        System.out.println("ENDEREÇO MANIFESTANTE: " + endereco_manifestante);
+        System.out.println("TELEFONE MANIFESTANTE: " + telefone_manifestante);
+        System.out.println("ASSUNTO: " + assunto);
+        System.out.println("TEXTO DA MANIFESTAÇÃO: " + texto_manifestacao);
+        System.out.println("CONTEXTUALIZAÇÃO PARA ÁREA COMPETENTE: " + contextualizacao);
+      
     }
 
     public ManipularString() {
-        /*System.out.println("Texto sendo manipulado...");
-        String Str = new String("Welcome to Tutorialspoint.com");
-        System.out.print("Return Value :" );
-        System.out.println(Str.substring(10) );*/
     }
 	  
     public String getTexto() {
@@ -44,6 +57,7 @@ public class ManipularString {
         this.texto = texto;
     }
     
+    /*
     public String getTratado() {
         return tratado;
     }
@@ -51,5 +65,86 @@ public class ManipularString {
     public void setTratado(String tratado) {
         this.texto = tratado;
     }
-   
+    */
+
+    public String getProtocolo() {
+        return protocolo;
+    }
+
+    public void setProtocolo(String protocolo) {
+        this.protocolo = protocolo;
+    }
+
+    public String getOrgao() {
+        return orgao;
+    }
+
+    public void setOrgao(String orgao) {
+        this.orgao = orgao;
+    }
+
+    public String getData_registro() {
+        return data_registro;
+    }
+
+    public void setData_registro(String data_registro) {
+        this.data_registro = data_registro;
+    }
+
+    public String getNome_manifestante() {
+        return nome_manifestante;
+    }
+
+    public void setNome_manifestante(String nome_manifestante) {
+        this.nome_manifestante = nome_manifestante;
+    }
+
+    public String getEmail_manifestante() {
+        return email_manifestante;
+    }
+
+    public void setEmail_manifestante(String email_manifestante) {
+        this.email_manifestante = email_manifestante;
+    }
+
+    public String getEndereco_manifestante() {
+        return endereco_manifestante;
+    }
+
+    public void setEndereco_manifestante(String endereco_manifestante) {
+        this.endereco_manifestante = endereco_manifestante;
+    }
+
+    public String getTelefone_manifestante() {
+        return telefone_manifestante;
+    }
+
+    public void setTelefone_manifestante(String telefone_manifestante) {
+        this.telefone_manifestante = telefone_manifestante;
+    }
+
+    public String getAssunto() {
+        return assunto;
+    }
+
+    public void setAssunto(String assunto) {
+        this.assunto = assunto;
+    }
+
+    public String getTexto_manifestacao() {
+        return texto_manifestacao;
+    }
+
+    public void setTexto_manifestacao(String texto_manifestacao) {
+        this.texto_manifestacao = texto_manifestacao;
+    }
+
+    public String getContextualizacao() {
+        return contextualizacao;
+    }
+
+    public void setContextualizacao(String contextualizacao) {
+        this.contextualizacao = contextualizacao;
+    }
+    
 }
