@@ -5,7 +5,6 @@ import javax.faces.bean.ManagedBean;
 public class ManipularString {
     
     private String texto;
-    //private String tratado;
     
     private String protocolo;
     private String orgao;
@@ -18,31 +17,40 @@ public class ManipularString {
     private String texto_manifestacao;
     private String contextualizacao;
     
-    public void tratarTexto(){
-   
-        StringTokenizer st = new StringTokenizer(texto);
-           
-        protocolo = st.nextToken("$");
-        orgao = st.nextToken("$");
-        data_registro = st.nextToken("$");
-        nome_manifestante = st.nextToken("$");
-        email_manifestante = st.nextToken("$");
-        endereco_manifestante = st.nextToken("$");
-        telefone_manifestante = st.nextToken("$");
-        assunto = st.nextToken("$");
-        texto_manifestacao = st.nextToken("$");
-        contextualizacao = st.nextToken("$");    
-           
-        System.out.println("PROTOCOLO: " + protocolo);
-        System.out.println("ÓRGÃO: " + orgao);
-        System.out.println("DATA DE REGISTRO: " + data_registro);
-        System.out.println("NOME MANIFESTANTE: " + nome_manifestante);
-        System.out.println("E-MAIL MANIFESTANTE: " + email_manifestante);
-        System.out.println("ENDEREÇO MANIFESTANTE: " + endereco_manifestante);
-        System.out.println("TELEFONE MANIFESTANTE: " + telefone_manifestante);
-        System.out.println("ASSUNTO: " + assunto);
-        System.out.println("TEXTO DA MANIFESTAÇÃO: " + texto_manifestacao);
-        System.out.println("CONTEXTUALIZAÇÃO PARA ÁREA COMPETENTE: " + contextualizacao);
+    public String tratarTexto(){
+        
+        String textoEmLinha = texto.replaceAll("[\\s]+", " ");
+        System.out.println("TEXTO EM LINHA: " +textoEmLinha);
+        
+        String textoTrocado = textoEmLinha.replace("PROTOCOLO", "\\$").replace("ÓRGÃO", "\\$").replace("DATA DE REGISTRO", "\\$").replace("NOME MANIFESTANTE", "\\$").replace("E-MAIL MANIFESTANTE", "\\$").replace("ENDEREÇO MANIFESTANTE", "\\$").replace("TELEFONE MANIFESTANTE", "\\$").replace("ASSUNTO", "\\$").replace("TEXTO DA MANIFESTAÇÃO", "\\$").replace("CONTEXTUALIZAÇÃO PARA ÁREA COMPETENTE", "\\$");     
+        System.out.println("TEXTO COM TOKENS: " +textoTrocado);
+        
+        // Instanciando objeto responsável por todo o processo
+        StringTokenizer st = new StringTokenizer(textoTrocado);
+        
+        protocolo = st.nextToken("\\$");
+        orgao = st.nextToken("\\$"); 
+        data_registro = st.nextToken("\\$");
+        nome_manifestante = st.nextToken("\\$");
+        email_manifestante = st.nextToken("\\$");
+        endereco_manifestante = st.nextToken("\\$");
+        telefone_manifestante = st.nextToken("\\$");
+        assunto = st.nextToken("\\$");
+        texto_manifestacao = st.nextToken("\\$");
+        contextualizacao = st.nextToken("\\$");
+
+        System.out.println("PROTOCOLO" + protocolo);
+        System.out.println("ÓRGÃO" + orgao);
+        System.out.println("DATA DE REGISTRO" + data_registro);
+        System.out.println("NOME MANIFESTANTE" + nome_manifestante);
+        System.out.println("E-MAIL MANIFESTANTE" + email_manifestante);
+        System.out.println("ENDEREÇO MANIFESTANTE:" + endereco_manifestante);
+        System.out.println("TELEFONE MANIFESTANTE:" + telefone_manifestante);
+        System.out.println("ASSUNTO" + assunto);
+        System.out.println("TEXTO DA MANIFESTAÇÃO:" + texto_manifestacao);
+        System.out.println("CONTEXTUALIZAÇÃO PARA ÁREA COMPETENTE:" + contextualizacao);
+        
+        return "tratado?faces-redirect=true";
       
     }
 
@@ -56,16 +64,6 @@ public class ManipularString {
     public void setTexto(String texto) {
         this.texto = texto;
     }
-    
-    /*
-    public String getTratado() {
-        return tratado;
-    }
-
-    public void setTratado(String tratado) {
-        this.texto = tratado;
-    }
-    */
 
     public String getProtocolo() {
         return protocolo;
