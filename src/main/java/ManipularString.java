@@ -1,6 +1,8 @@
 import java.util.StringTokenizer;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
+@SessionScoped
 @ManagedBean(name = "manipularString")
 public class ManipularString {
     
